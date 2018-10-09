@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:zzb/MainTabbar.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(new MainTabbarController());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
