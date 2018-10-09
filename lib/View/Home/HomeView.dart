@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:banner/banner.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:english_words/english_words.dart';
+import 'package:zzb/View/Home/SecondView.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _HomeViewState extends State<HomeView> {
     return new Column(
       children: <Widget>[
         new BannerView(
-          data: ['a', 'b', 'c'],
+          data: ['abc', '123', 'XYZ'],
           buildShowView: (index, data) {
             return new CachedNetworkImage(
               imageUrl: "https://dummyimage.com/800x600/957218/FFFFFF&text="+WordPair.random().asPascalCase,
@@ -27,10 +28,15 @@ class _HomeViewState extends State<HomeView> {
               fit: BoxFit.fitWidth,
             );
           },
-          delayTime: 10,
+          delayTime: 60,
           onBannerClickListener: (index, data) {
             debugPrint("show dialog");
             Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("$data")));
+            Navigator.push(
+              context,
+//              new MaterialPageRoute(builder: (context) => new SecondView())
+              new CupertinoPageRoute(builder: (context) => new SecondView())
+            );
           },
         ),
       ],
